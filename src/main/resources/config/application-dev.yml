@@ -5,10 +5,9 @@ spring:
     profiles: dev
     data:
         mongodb:
-            host: localhost
-            port: 27017
-            databaseName: gina3
-    
+            host: ds045099.mongolab.com
+            port: 45099
+            databaseName: gina
 
     mail:
         baseUrl: http://localhost:8080
