@@ -1,0 +1,18 @@
+{
+  "generator-jhipster": {
+    "baseName": "gina3",
+    "packageName": "com.gina",
+    "packageFolder": "com/gina",
+    "authenticationType": "cookie",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "nosql",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "useCompass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "8"
+  }
+}
