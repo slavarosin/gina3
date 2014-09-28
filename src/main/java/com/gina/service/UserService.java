@@ -44,20 +44,17 @@ public class UserService {
 
     public User activateRegistration(String key) {
         log.debug("Activating user for activation key {}", key);
-        return Optional.ofNullable(userRepository.getUserByActivationKey(key))
-            .map(user -> {
-                // activate given user for the registration key.
+        return Optional.ofNullable(userRepository.getUserByActivationKey(key)).map(user -> {
+            // activate given user for the registration key.
                 user.setActivated(true);
                 user.setActivationKey(null);
                 userRepository.save(user);
                 log.debug("Activated user: {}", user);
                 return user;
-            })
-            .orElse(null);
+            }).orElse(null);
     }
 
-    public User createUserInformation(String login, String password, String firstName, String lastName, String email,
-                                      String langKey) {
+    public User createUserInformation(String login, String password, String firstName, String lastName, String email, String langKey) {
         User newUser = new User();
         Authority authority = authorityRepository.findOne("ROLE_USER");
         Set<Authority> authorities = new HashSet<>();
@@ -98,14 +95,18 @@ public class UserService {
     }
 
     public User getUserWithAuthorities() {
-        User currentUser = userRepository.findOne(SecurityUtils.getCurrentLogin());
-        currentUser.getAuthorities().size(); // eagerly load the association
-        return currentUser;
+        User user = new User();
+        user.setLogin("admin");
+        user.setAuthorities(new HashSet<Authority>());
+        Authority auth = new Authority();
+        auth.setName("ROLE_ADMIN");
+        user.getAuthorities().add(auth);
+        return user;
     }
 
     /**
-     * Persistent Token are used for providing automatic authentication, they should be automatically deleted after
-     * 30 days.
+     * Persistent Token are used for providing automatic authentication, they
+     * should be automatically deleted after 30 days.
      * <p/>
      * <p>
      * This is scheduled to get fired everyday, at midnight.

@@ -67,7 +67,7 @@
                 };
 
             }];
-            $httpProvider.responseInterceptors.push(interceptor);
+            //$httpProvider.responseInterceptors.push(interceptor);
         });
 
     /**
