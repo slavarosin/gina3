@@ -321,11 +321,6 @@
             <artifactId>spring-context-support</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.mongeez</groupId>
-            <artifactId>mongeez</artifactId>
-            <version>0.9.4</version>
-        </dependency>
-        <dependency>
             <groupId>io.github.jhipster.loaded</groupId>
             <artifactId>core</artifactId>
             <version>${jhipster-loaded.version}</version>

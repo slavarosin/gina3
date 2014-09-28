@@ -8,6 +8,8 @@ spring:
             host: ds045099.mongolab.com
             port: 45099
             databaseName: gina
+            user: gina
+            pass: gina
 
     mail:
         baseUrl: http://localhost:8080
