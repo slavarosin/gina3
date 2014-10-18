@@ -5,10 +5,11 @@ spring:
     profiles: prod
     data:
         mongodb:
-            host: localhost
-            port: 27017
-            databaseName: gina3
-    
+            host: ds045099.mongolab.com
+            port: 45099
+            databaseName: gina
+            user: gina
+            pass: gina
 
     mail:
         baseUrl: http://localhost:8080
@@ -18,12 +19,9 @@ spring:
         cache: true
         viewNames: error
 
-
 metrics:
     jmx.enabled: true
     graphite:
         enabled: false
         host: localhost
         port: 2003
-
-

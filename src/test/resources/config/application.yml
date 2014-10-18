@@ -13,13 +13,6 @@ async:
 
 spring:
     profiles: dev
-    data:
-        mongodb:
-             host: localhost
-             port: 27017
-             databaseName: gina3
-    
-
     mail:
         host: localhost
         port: 25

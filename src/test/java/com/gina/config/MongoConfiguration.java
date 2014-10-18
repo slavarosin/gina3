@@ -1,7 +1,10 @@
 package com.gina.config;
 
 import com.mongodb.Mongo;
+
 import cz.jirutka.spring.embedmongo.EmbeddedMongoBuilder;
+import de.flapdoodle.embed.mongo.distribution.Version;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,12 +16,8 @@ public class MongoConfiguration {
 
     @Bean
     public Mongo mongo() throws IOException {
-        System.setProperty("DB.TRACE","true");
-        return new EmbeddedMongoBuilder()
-                .version("2.6.0")
-                .bindIp("127.0.0.1")
-                .port(allocateRandomPort())
-                .build();
+        System.setProperty("DB.TRACE", "true");
+        return new EmbeddedMongoBuilder().version(Version.V2_4_5).bindIp("127.0.0.1").port(allocateRandomPort()).build();
     }
 
     public static int allocateRandomPort() {

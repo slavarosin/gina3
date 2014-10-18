@@ -14,6 +14,13 @@ async:
     queueCapacity: 10000
 
 spring:
+    data:
+        mongodb:
+            host: ds045099.mongolab.com
+            port: 45099
+            databaseName: gina
+            user: gina
+            pass: gina
     mail:
         host: localhost
         port: 25

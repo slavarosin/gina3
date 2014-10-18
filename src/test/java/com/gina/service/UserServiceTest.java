@@ -6,12 +6,14 @@ import com.gina.domain.PersistentToken;
 import com.gina.domain.User;
 import com.gina.repository.PersistentTokenRepository;
 import com.gina.repository.UserRepository;
+
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.context.annotation.Import;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -42,9 +44,14 @@ public class UserServiceTest {
 
     @Inject
     private UserService userService;
+    
+    @Inject
+    private MongoTemplate mongoTemplate;
 
     @Test
     public void testRemoveOldPersistentTokens() {
+        System.out.println(mongoTemplate.getDb());
+        
         User admin = userRepository.findOne("admin");
         int existingCount = persistentTokenRepository.findByUser(admin).size();
         generateUserToken(admin, "1111-1111", new LocalDate());
